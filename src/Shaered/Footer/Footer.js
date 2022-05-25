@@ -35,7 +35,7 @@ const Footer = () => {
                     </div>
                 
                 <h4 className='text-primary py-2 text-center'>All rights &copy; belongs to <span className='text-white'>
-                <BsLaptop /> Laptop Store {new Date().getFullYear()}</span></h4>
+                Electric-Saw Store {new Date().getFullYear()}</span></h4>
             
             </footer>
     );
