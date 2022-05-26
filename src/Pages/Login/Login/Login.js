@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form"
 import Loding from '../../Loding/Loding';
@@ -16,7 +16,7 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
-    const [token] = useToken(user || gUser);
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
     let signInError;
     const navigate = useNavigate();
@@ -24,22 +24,26 @@ const Login = () => {
     let from = location.state?.from?.pathname || "/";
 
     useEffect( () =>{
-        if (token) {
+        if (user || gUser) {
             navigate(from, { replace: true });
         }
-    }, [token, from, navigate])
+    }, [user, gUser, from, navigate])
 
-    if (loading || gLoading) {
-        return <Loding></Loding>
+    if (loading || gLoading || updating) {
+        return <Loding/>
     }
 
     if(error || gError){
-        signInError= <p className='text-red-500'><small>{error?.message || gError?.message }</small></p>
+        signInError= <p className='text-red-500'><small>{error?.message || gError?.message || updateError?.message }</small></p>
     }
 
-    const onSubmit = data => {
-        signInWithEmailAndPassword(data.email, data.password);
+    const onSubmit = async data => {
+        await signInWithEmailAndPassword(data.email, data.password);
+        await updateProfile({displayName: data.name});
+        console.log('update none');
+        navigate('/');
     }
+
     return (
         <div className='flex h-screen justify-center items-center'>
             <div className="card w-96 bg-base-100 shadow-xl">
@@ -99,7 +103,7 @@ const Login = () => {
                         {signInError}
                         <input className='btn w-full max-w-xs text-white' type="submit" value="Login" />
                     </form>
-                    <p><small>New to Doctors Portal <Link className='text-primary' to="/register">Create New Account</Link></small></p>
+                    <p><small>New to Doctors Portal <Link className='text-primary' to="/signup">Create New Account</Link></small></p>
                     <div className="divider">OR</div>
                     <button
                         onClick={() => signInWithGoogle()}

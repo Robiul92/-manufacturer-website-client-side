@@ -1,0 +1,76 @@
+[
+    {
+      "_id": "124e13b9-2d54-4b2f-a74d-a77b362d6ead",
+    
+      "name": "WORX WG322 20V Power Share 10",
+      "supplier": "Amazon",
+      "price": 129,
+      "description": "This cordless 20V PowerShare chain saw is as fast and powerful as anything in its class. And with no gas and no cord, there’s much less muss and fuss",
+      "img": "https://i.ibb.co/3cTFjpy/im1.jpg",
+      "quantity": 500,
+      "o_quantity": 10
+    },
+    {
+      "_id": "124e13b9-2d54-4b2f-a74d-a77b362d6rad",
+    
+      "name": "BLACK+DECKER Electric Hand Saw with Storage",
+      "supplier": "Khan & sons",
+      "price": 420,
+      "description":  "HIGH POWER ELECTRIC HAND SAW - 3.4 Amp electric hand saw for enhanced cutting power and fatigue-free use",
+      "img": "https://i.ibb.co/wKw0W8h/im2.jpg",
+      "quantity": 500,
+      "o_quantity": 30
+    },
+    
+ 
+    {
+      "_id": "307f166f-1d04-4573-bc37-2f461ea9d4f7",
+    
+      "name": "BLACK+DECKER Jig Saw, Smart Select, 5.0-Amp (BDEJS600C)",
+      "supplier": "Regal",
+      "price": 245,
+      "description":  "HIGH PERFORMANCE ELECTRIC JIG SAW - 5 amp electric jig saw with a 3⁄4” blade orbital action for increased precision",
+      "img": "https://i.ibb.co/zhcYMZh/im3.jpg",
+      
+      "quantity": 500,
+      "o_quantity": 100
+    },
+   
+    {
+      "_id": "9496d72b-04ec-41f8-9bc3-0a7c9697be8e",
+    
+      "name": "SKIL 15 Amp 7-1/4 Inch Circular Saw",
+      "supplier": "Metro ",
+      "price": 81250,
+      "description":  "Powerful 15-amp motor delivers 5 300-RPM for greater speed and faster cuts",
+      "img": "https://i.ibb.co/Hhc94Pk/im4.jpg",
+      "shipping": 49,
+      "quantity": 500,
+      "o_quantity": 100
+    },
+    
+    
+ 
+
+    {
+      "_id": "ed6a7ac3-7e67-4e3f-8461-bceb5178be42",
+      "name": "Electric Hand Saw with Storage Bag, 3.4-Amp",
+      "supplier": "Noksha Furniture",
+      "price": 108,
+      "description":  "LIGHTWEIGHT, COMPACT DESIGN - Ergonomically designed for comfortable, sure- handed operation",
+      "img": "https://i.ibb.co/w4z5LmR/im5.jpg",
+      "quantity": 500,
+      "o_quantity": 100
+    },
+    {
+      "_id": "ed6a7ac3-7e67-4e3f-8461-bceb5178be42",
+      "name": "Worx WX439L 4.5 Amp",
+      "supplier": "Noksha Furniture",
+      "price": 108,
+      "description":  "ONE-HAND OPERATION] The newly designed slim form factor makes the Worxsaw even lighter and more maneuverable. Grab it with one hand, and you’re good to go",
+      "img": "https://i.ibb.co/Lz5328W/im6.jpg",
+      "quantity": 500,
+      "o_quantity": 100
+    }
+    
+]
