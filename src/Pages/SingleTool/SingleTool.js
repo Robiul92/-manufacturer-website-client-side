@@ -1,12 +1,16 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import useItem from '../hooks/useItem';
+import auth from '../../firebase.init';
+
 
 const SingleTool = () => {
   const { id } = useParams();
   const [product] = useItem();
+  const [user, loading, error] = useAuthState(auth);
   const { name, price, quantity, o_quantity, description, img } = product;
 
   const navigate = useNavigate();
@@ -73,7 +77,7 @@ const SingleTool = () => {
 const handleQuantity = e => {
 
   e.preventDefault();
-  const quantity = parseInt(e.target.quantity.value) + parseInt(product.quantity);
+  const quantity = parseInt(e.target.quantity.value) * parseInt(product.price);
   const updateQuantity = { quantity }
   console.log(updateQuantity);
   const url = `https://fathomless-lake-76602.herokuapp.com/inventory/${id}`;
@@ -98,7 +102,7 @@ const handleQuantity = e => {
 
 
 return (
-  <div className='items-center flex justify-center '>
+  <div className='items-center flex justify-center gap-20'>
     <div class="card w-96 bg-base-100 shadow-xl ">
       <figure class="px-10 pt-10">
         <img src={img} alt="" class="rounded-xl" />
@@ -114,7 +118,7 @@ return (
           <form className='card-body' onSubmit={handleQuantity}>
 
             <p>Quantity: </p>
-            <input className='ms-2 border border-white' type="number" name="quantity" value={product.quantity} readOnly />
+            <input className='ms-2 border border-white' type="number" name="quantity"   />
 
             <button className='btn btn-primary'>DELIVERD</button>
           </form>
@@ -127,15 +131,15 @@ return (
     <div>
       <div className='flex justify-center mt-5'>
         <div className='card w-96 bg-base-100 shadow-xl items-center flex justify-center'>
-          <h1 className='text-center text-danger'>Add a New Item</h1>
+          <h1 className='text-center text-danger'>Contract details</h1>
           <div className=''>
             <form className='card-body' onSubmit={handleSubmit(onSubmit)}>
-              <input className='mb-3 form-control w-full max-w-xs' placeholder='Name'{...register("name", { required: true, maxLength: 20 })} />
+              <input className='mb-3 form-control w-full max-w-xs' value={user.displayName}{...register("name", { required: true, maxLength: 20 })} />
               <textarea className='mb-3 form-control w-full max-w-xs' placeholder='Address'{...register("description")} />
               <input className='mb-3 form-control w-full max-w-xs' placeholder='Price' type="number" {...register("price")} />
-              <input className='mb-3 form-control w-full max-w-xs' placeholder='Minnium order Quantity' type="number" {...register("o_quantity")} />
+              <input className='mb-3 form-control w-full max-w-xs' value={user.email} type="email" {...register("email")} />
               <input className='mb-3 form-control w-full max-w-xs' placeholder='Quantity' type="number" {...register("quantity")} />
-              <input className='mb-3 form-control w-full max-w-xs' placeholder='Phone number' type="number" {...register("quantity")} />
+              <input className='mb-3 form-control w-full max-w-xs' placeholder='Phone number' type="number" {...register("pn_number")} />
 
               <input className='btn w-full max-w-xs text-white' type="submit" value="Confrom" />
             </form>
