@@ -11,6 +11,10 @@ import NotFound from './Pages/NotFound/NotFound';
 import ItemDetails from './Pages/ItemDetails/ItemDetails';
 import SingleTool from './Pages/SingleTool/SingleTool';
 import RequireAuth from './Shaered/RequireAuth/RequireAuth';
+import AddressDetails from './Pages/AddressDetails/AddressDetails';
+import AddItems from './Pages/AddItems/AddItems';
+import Dashbord from './Pages/Dashbord/Dashbord';
+import Blog from './Pages/Blog/Blog';
 
 function App() {
   return (
@@ -30,8 +34,25 @@ function App() {
       </RequireAuth>
       
       }/>
+      <Route path='/addressdetails' element={
+      <RequireAuth>
+        <AddressDetails/>
+      </RequireAuth>
+      
+      }/>
+      <Route path='/additems' element={
+      <RequireAuth>
+        <AddItems/>
+      </RequireAuth>
+      }/>
+      <Route path='/dashbord' element={
+      <RequireAuth>
+        <Dashbord/>
+      </RequireAuth>
+      }/>
         <Route path='/login' element={<Login></Login> } ></Route>
         <Route path='/register' element={<Register/> } ></Route>
+        <Route path='/blogs' element={<Blog/>} />
         <Route path='*' element={<NotFound/>} />
       </Routes>
       <Footer/>

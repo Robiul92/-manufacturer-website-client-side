@@ -33,7 +33,7 @@ const Register = () => {
     }
 
     if (token) {
-        navigate('/appointment');
+        navigate('/addressdetails');
     }
 
     const onSubmit = async data => {
