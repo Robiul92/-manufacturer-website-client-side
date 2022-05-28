@@ -17,7 +17,7 @@ const ItemDetails = () => {
 
     return (
         <div>
-            <h1 className='text-center text-danger'>Thanks for selecting this Furniture item: {category.name}</h1>
+            <h1 className='text-center text-danger'>Thanks for selecting this  item: {category.name}</h1>
             <div class="card w-96 bg-base-100 shadow-xl">
   <figure class="px-10 pt-10">
     <img src={img} alt="" class="rounded-xl" />

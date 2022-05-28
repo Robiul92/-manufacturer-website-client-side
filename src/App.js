@@ -15,10 +15,12 @@ import AddressDetails from './Pages/AddressDetails/AddressDetails';
 import AddItems from './Pages/AddItems/AddItems';
 import Dashbord from './Pages/Dashbord/Dashbord';
 import Blog from './Pages/Blog/Blog';
+import MyReview from './Pages/MyReview/MyReview';
+import MyOrders from './Pages/MyOrders/MyOrders';
 
 function App() {
   return (
-    <div>
+    <div className='max-w-7×1 mx-auto px-12'>
       <Header></Header>
       <Routes>
       
@@ -49,7 +51,11 @@ function App() {
       <RequireAuth>
         <Dashbord/>
       </RequireAuth>
-      }/>
+      }>
+        <Route index element ={<MyOrders></MyOrders>}> </Route>
+        <Route path="review" element ={<MyReview></MyReview>}> </Route>
+        </Route>
+      
         <Route path='/login' element={<Login></Login> } ></Route>
         <Route path='/register' element={<Register/> } ></Route>
         <Route path='/blogs' element={<Blog/>} />

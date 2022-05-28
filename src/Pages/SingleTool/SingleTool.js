@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate, useParams } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import useItem from '../hooks/useItem';
 import auth from '../../firebase.init';
 
@@ -22,23 +22,20 @@ const SingleTool = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = data => {
     console.log(data)
-    const url = `http://localhost:5000/tool`;
+    const url = `http://localhost:5000/order`;
     fetch(url, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
       },
       body: JSON.stringify(data)
-
-    })
+})
       .then(res => res.json())
       .then(result => {
 
         toast('Item Added')
         console.log(result);
-      })
-
-  };
+      })};
 
   const ReStock = e => {
     
@@ -48,56 +45,32 @@ const SingleTool = () => {
     console.log(quantity);
 
 
-    const updateRestock = { quantity };
-    console.log(updateRestock);
-    const url = `http://localhost:5000/tool/${id}`;
-    console.log(url);
-    fetch(url, {
-        method: 'PUT',
+    // const updateRestock = { quantity };
+    // console.log(updateRestock);
+    // const url = `http://localhost:5000/tool/${id}`;
+    // console.log(url);
+    // fetch(url, {
+    //     method: 'PUT',
 
-        headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-        },
-        body: JSON.stringify(
-            updateRestock
-        ),
-    })
-        .then(response => response.json())
-        .then(data => {
-            e.target.reset();
-            toast('Restok success')
-            console.log(data);
+    //     headers: {
+    //         'Content-type': 'application/json; charset=UTF-8',
+    //     },
+    //     body: JSON.stringify(
+    //         updateRestock
+    //     ),
+    // })
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         e.target.reset();
+    //         toast('Restok success')
+    //         console.log(data);
 
-        });
+    //     });
 
 }
 
 
 
-const handleQuantity = e => {
-
-  e.preventDefault();
-  const quantity = parseInt(e.target.quantity.value) * parseInt(product.price);
-  const updateQuantity = { quantity }
-  console.log(updateQuantity);
-  const url = `https://fathomless-lake-76602.herokuapp.com/inventory/${id}`;
-  fetch(url, {
-    method: 'PUT',
-    body: JSON.stringify(
-      updateQuantity
-    ),
-    headers: {
-      'Content-type': 'application/json; charset=UTF-8',
-    },
-  })
-    .then(response => response.json())
-    .then(data => {
-      // setProducts(data)
-      toast('Product Deliverd Success')
-      console.log(data);
-
-    });
-}
 
 
 
@@ -115,13 +88,7 @@ return (
         <p>Minnium Order Quantity: {o_quantity}</p>
         <div class="card-actions">
           
-          <form className='card-body' onSubmit={handleQuantity}>
-
-            <p>Quantity: </p>
-            <input className='ms-2 border border-white' type="number" name="quantity"   />
-
-            <button className='btn btn-primary'>DELIVERD</button>
-          </form>
+          
 
 
         </div>
@@ -136,7 +103,7 @@ return (
             <form className='card-body' onSubmit={handleSubmit(onSubmit)}>
               <input className='mb-3 form-control w-full max-w-xs' value={user.displayName}{...register("name", { required: true, maxLength: 20 })} />
               <textarea className='mb-3 form-control w-full max-w-xs' placeholder='Address'{...register("description")} />
-              <input className='mb-3 form-control w-full max-w-xs' placeholder='Price' type="number" {...register("price")} />
+              
               <input className='mb-3 form-control w-full max-w-xs' value={user.email} type="email" {...register("email")} />
               <input className='mb-3 form-control w-full max-w-xs' placeholder='Quantity' type="number" {...register("quantity")} />
               <input className='mb-3 form-control w-full max-w-xs' placeholder='Phone number' type="number" {...register("pn_number")} />
@@ -147,6 +114,7 @@ return (
         </div>
       </div>
     </div>
+    <ToastContainer />
   </div>
 
 );
