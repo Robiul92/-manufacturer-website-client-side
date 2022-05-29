@@ -7,7 +7,7 @@ const ItemDetails = () => {
     const { name, price, quantity, o_quantity, description, img } = category;
 
     useEffect(() => {
-        const url = `http://localhost:5000/tool/${id}`;
+        const url = `https://serene-harbor-07570.herokuapp.com/tool/${id}`;
         console.log(url);
 
         fetch(url)

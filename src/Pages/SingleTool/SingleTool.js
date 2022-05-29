@@ -15,14 +15,14 @@ const SingleTool = () => {
 
   const navigate = useNavigate();
 
-  const navigateToCheckout = () => {
-    navigate('/addressdetails')
-  };
+  // const navigateToCheckout = () => {
+  //   navigate('/addressdetails')
+  // };
 
   const { register, handleSubmit } = useForm();
   const onSubmit = data => {
     console.log(data)
-    const url = `http://localhost:5000/order`;
+    const url = `https://serene-harbor-07570.herokuapp.com/order`;
     fetch(url, {
       method: 'POST',
       headers: {
@@ -47,7 +47,7 @@ const SingleTool = () => {
 
     // const updateRestock = { quantity };
     // console.log(updateRestock);
-    // const url = `http://localhost:5000/tool/${id}`;
+    // const url = `https://serene-harbor-07570.herokuapp.com/tool/${id}`;
     // console.log(url);
     // fetch(url, {
     //     method: 'PUT',

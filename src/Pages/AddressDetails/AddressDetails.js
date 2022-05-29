@@ -7,7 +7,7 @@ const AddressDetails = () => {
     const { register, handleSubmit } = useForm();
 const onSubmit = data => {
     console.log(data)
-    const url = `http://localhost:5000/user`;
+    const url = `https://serene-harbor-07570.herokuapp.com/user`;
     fetch(url, {
         method: 'POST',
         headers: {

@@ -5,7 +5,7 @@ import image3 from '../../Image/bn-5.png'
 const BuisnessDetails = () => {
     return (
         <div>
-            <h1 className='text-center text-3xl font-bold p-5'>Reviewes</h1>
+            <h1 className='text-center text-3xl font-bold p-5 text-warning'>Buisness Summary</h1>
             <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 mt-7 mb-7 '> 
             <div className='grid justify-items-center'>
                 <img className='object-cover h-20 w-90' src={image1} alt="" />

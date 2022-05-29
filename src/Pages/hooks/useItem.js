@@ -8,7 +8,7 @@ const useItem = () => {
     console.log(id);
 
     useEffect(() => {
-        const url = `http://localhost:5000/tool/${id}`;
+        const url = `https://serene-harbor-07570.herokuapp.com/tool/${id}`;
 
         fetch(url)
             .then(res => res.json())
