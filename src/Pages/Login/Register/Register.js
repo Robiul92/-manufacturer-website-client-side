@@ -33,8 +33,10 @@ const Register = () => {
     }
 
     if (token) {
-        navigate('/addressdetails');
+        navigate('/');
     }
+
+    
 
     const onSubmit = async data => {
         await createUserWithEmailAndPassword(data.email, data.password);
