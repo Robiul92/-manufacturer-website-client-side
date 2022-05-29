@@ -23,7 +23,7 @@ const Users = () => {
                             <th></th>
                             <th>Name</th>
                             <th>Job</th>
-                            <th>Favorite Color</th>
+                            <th>Romove User</th>
                         </tr>
                     </thead>
                     <tbody>
