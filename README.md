@@ -1,7 +1,9 @@
 # Getting Started with Electric-Saw 
 # Website type: Electric Saw WebApp
 # Website Title: Electric-Saw
-# Website live link:
+# Electric-Saw Website live link: https://electric-saw.web.app/
+# The WareHouse WebApp Live link : https://simple-warehouse.web.app/
+# The HoomFoodi WebApp Live link : https://personal-portfolio-8404f.web.app/
 # Features and Functionality
 1. Header Section
 2. Product details
